@@ -2,6 +2,8 @@ package com.test.freemarker.application;
 
 import com.itextpdf.html2pdf.HtmlConverter;
 import com.itextpdf.kernel.pdf.PdfWriter;
+import com.test.freemarker.model.ModelPersona;
+import com.test.freemarker.model.PdfModel;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import lombok.extern.log4j.Log4j2;
@@ -55,10 +57,45 @@ public class FreeMarkerService {
         Map<String, Object> input = new HashMap<String, Object>();
 
         input.put("title", "Il mio titolo preferito");
-        input.put("persone",ModelPersona.getTestList());
+        input.put("persone", ModelPersona.getTestList());
         input.put("html","<b style='color:red;'><i>Il mio nome &#233; Nessuno</i></b>");
         return input;
     }
+
+
+    public File getPdf2() throws IOException {
+
+        log.info("START getPdf()");
+        Path tempFilePath = getPath();
+        File tempFile = tempFilePath.toFile();
+
+        log.info("file {}", tempFile.getAbsolutePath());
+
+        Object input = getInputObject();
+
+        Writer fileWriter = new FileWriter(tempFile);
+
+        try {
+            Template template = cfg.getTemplate("listpersona.ftl");
+            template.process(input, fileWriter);
+
+            String html = Files.readString(tempFilePath);
+
+            HtmlConverter.convertToPdf(html,new PdfWriter(tempFile));
+
+        }catch (Exception e){
+            log.error(e);
+        }finally {
+            fileWriter.close();
+        }
+
+        return tempFile;
+    }
+
+    private Object getInputObject() {
+        return new PdfModel();
+    }
+
 
     private Path getPath(){
         //        Path tempFilePath = Files.createTempFile("file-",".pdf");

@@ -21,7 +21,7 @@ public class FreeMarkerController {
     public ResponseEntity<?> downloadPdf(){
         File file = null;
         try {
-            file = service.getPdf();
+            file = service.getPdf2();
             InputStreamResource resource =
                     new InputStreamResource(
                             new FileInputStream(file)

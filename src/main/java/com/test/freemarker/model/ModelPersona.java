@@ -1,4 +1,4 @@
-package com.test.freemarker.application;
+package com.test.freemarker.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

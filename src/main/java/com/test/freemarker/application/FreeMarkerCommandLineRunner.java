@@ -3,12 +3,12 @@ package com.test.freemarker.application;
 
 import com.itextpdf.html2pdf.HtmlConverter;
 import com.itextpdf.kernel.pdf.PdfWriter;
+import com.test.freemarker.model.ModelPersona;
 import freemarker.cache.FileTemplateLoader;
 
 import freemarker.core.ParseException;
 import freemarker.template.*;
 import freemarker.template.Template;
-import lombok.extern.java.Log;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -88,7 +88,7 @@ public class FreeMarkerCommandLineRunner implements CommandLineRunner {
         Map<String, Object> input = new HashMap<String, Object>();
 
         input.put("title", "Il mio titolo preferito");
-        input.put("persone",ModelPersona.getTestList());
+        input.put("persone", ModelPersona.getTestList());
         input.put("html","<b style='color:red;'><i>Il mio nome &#233; Nessuno</i></b>");
 
         Writer fileWriter = null;
