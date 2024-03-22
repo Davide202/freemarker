@@ -22,6 +22,7 @@ public class FreeMarkerController {
         File file = null;
         try {
             file = service.getPdf2();
+            InputStream inputStream = new FileInputStream(file);
             InputStreamResource resource =
                     new InputStreamResource(
                             new FileInputStream(file)

@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -79,7 +80,8 @@ public class FreeMarkerService {
             Template template = cfg.getTemplate("listpersona.ftl");
             template.process(input, fileWriter);
 
-            String html = Files.readString(tempFilePath);
+//            String html = Files.readString(tempFilePath);
+            String html = new String(Files.readAllBytes(tempFilePath));
 
             HtmlConverter.convertToPdf(html,new PdfWriter(tempFile));
 
@@ -99,7 +101,8 @@ public class FreeMarkerService {
 
     private Path getPath(){
         //        Path tempFilePath = Files.createTempFile("file-",".pdf");
-        Path tempFilePath = Path.of("file.pdf");
+//        Path tempFilePath = Path.of("file.pdf");
+        Path tempFilePath = Paths.get("file.pdf");
         try {
             tempFilePath = Files.createFile(tempFilePath);
         } catch (java.nio.file.FileAlreadyExistsException e) {
