@@ -3,6 +3,8 @@ package com.test.freemarker.application;
 
 import com.itextpdf.html2pdf.HtmlConverter;
 import com.itextpdf.kernel.pdf.PdfWriter;
+import freemarker.cache.FileTemplateLoader;
+import freemarker.cache.TemplateLoader;
 import freemarker.core.ParseException;
 import freemarker.template.*;
 import freemarker.template.Template;
@@ -42,16 +44,21 @@ public class FreeMarkerService {
 //                "<html><body><div>TEST TEST <br> <b>This text should be written in bold.</b></div></boby></html>",       // html to be converted
                 html,
                 new PdfWriter(
-                        new File("./src/main/resources/output.pdf")  // destination file
+                        new File(output_pdf)  // destination file
                 )
         );
     }
 
-    private Configuration config(){
+    private Configuration config() throws IOException {
+        String extBasePath = "C:\\FPF-Fondimpresa";
+
         Configuration cfg = new Configuration(Configuration.VERSION_2_3_28);
 
+        TemplateLoader templateLoader = new FileTemplateLoader(new File(extBasePath));
+        cfg.setTemplateLoader(templateLoader);
+
         // Where do we load the templates from:
-        cfg.setClassForTemplateLoading(this.getClass(), "/templates");
+        //cfg.setClassForTemplateLoading(this.getClass(), "/templates");
 
         // Some other recommended settings:
         cfg.setIncompatibleImprovements(new Version(2, 3, 20));

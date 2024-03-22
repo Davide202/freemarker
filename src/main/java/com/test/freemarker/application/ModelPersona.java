@@ -15,21 +15,12 @@ public class ModelPersona {
     private String nome;
     private String cognome;
 
-//    public String getNome() {
-//        return nome;
-//    }
-//
-//    public void setNome(String nome) {
-//        this.nome = nome;
-//    }
-
-
     public static List<ModelPersona> getTestList(){
-        List<ModelPersona> list = new ArrayList<>();
-        list.add(new ModelPersona("davide","dinnocente"));
-        list.add(new ModelPersona("marco","barcellona"));
-        list.add(new ModelPersona("venanzio","figliolino"));
-        list.add(new ModelPersona("pietro","santurelli"));
-        return list;
+        List<ModelPersona> persone = new ArrayList<>();
+        persone.add(new ModelPersona("davide","dinnocente"));
+        persone.add(new ModelPersona("marco","barcellona"));
+        persone.add(new ModelPersona("venanzio","figliolino"));
+        persone.add(new ModelPersona("pietro","santurelli"));
+        return persone;
     }
 }
