@@ -3,6 +3,9 @@ package com.test.freemarker.application;
 
 import com.itextpdf.html2pdf.HtmlConverter;
 import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.layout.renderer.AbstractRenderer;
+import com.test.freemarker.model.DatiProcessiPiano;
+import com.test.freemarker.model.ExportingPiano;
 import com.test.freemarker.model.ModelPersona;
 import freemarker.cache.FileTemplateLoader;
 
@@ -22,12 +25,15 @@ import java.util.Map;
 
 
 @Component
-@Deprecated
+//@Deprecated
 @Log4j2
+
 public class FreeMarkerCommandLineRunner implements CommandLineRunner {
 
-    private final static String list_persona_html = "./src/main/resources/listpersona.html";
+    private final static String list_persona_html = "./src/main/resources/page.html";
     private final static String output_pdf = "./src/main/resources/output.pdf";
+
+    private final static String TEMPLATE = "exporting-piano.ftl";
 
 
     @Override
@@ -37,9 +43,9 @@ public class FreeMarkerCommandLineRunner implements CommandLineRunner {
             createHtml();
             writePdfTest();
         } catch (Exception e) {
-            log.error("\n*****Exception {}",e.getMessage());
-
+            log.error("\n*****Exception {} {} \n",e.getClass(), e.getMessage());
         }
+        System.exit(0);
     }
 
 
@@ -62,7 +68,7 @@ public class FreeMarkerCommandLineRunner implements CommandLineRunner {
         try {
             String extBasePath = "C:\\FPF-Fondimpresa";
             File extDir = new File(extBasePath);
-            if (extDir.exists() && extDir.isDirectory()){
+            if (extDir.exists() && extDir.isDirectory() && false){
                 cfg.setTemplateLoader(new FileTemplateLoader(extDir));
             }else{
                 // Where do we load the templates from:
@@ -85,22 +91,24 @@ public class FreeMarkerCommandLineRunner implements CommandLineRunner {
     private final Configuration cfg = config();
 
     private void createHtml() throws IOException {
-        Map<String, Object> input = new HashMap<String, Object>();
+//        Map<String, Object> input = new HashMap<String, Object>();
+//
+//        input.put("title", "Il mio titolo preferito");
+//        input.put("persone", ModelPersona.getTestList());
+//        input.put("html","<b style='color:red;'><i>Il mio nome &#233; Nessuno</i></b>");
 
-        input.put("title", "Il mio titolo preferito");
-        input.put("persone", ModelPersona.getTestList());
-        input.put("html","<b style='color:red;'><i>Il mio nome &#233; Nessuno</i></b>");
+        ExportingPiano input = new ExportingPiano();
 
         Writer fileWriter = null;
 
         try {
-            Template template = cfg.getTemplate("listpersona.ftl");
+            Template template = cfg.getTemplate(TEMPLATE);
 
             // 2.3. Generate the output
 
             // Write output to the console
-            Writer consoleWriter = new OutputStreamWriter(System.out);
-            template.process(input, consoleWriter);
+//            Writer consoleWriter = new OutputStreamWriter(System.out);
+//            template.process(input, consoleWriter);
 
             // For the sake of example, also write output into a file:
             fileWriter = new FileWriter(new File(list_persona_html));
@@ -120,5 +128,9 @@ public class FreeMarkerCommandLineRunner implements CommandLineRunner {
             if (fileWriter != null) fileWriter.close();
         }
     }
+
+
+
+
 
 }

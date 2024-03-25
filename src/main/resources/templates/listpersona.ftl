@@ -1,7 +1,44 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <title>
+        How to Append HTML Code to
+        a Div using Javascript?
+    </title>
+
+    <style>
+
+
+        h1 {
+            color: green;
+        }
+
+        .page
+        {
+          background: white;
+          width: 21cm;
+          height: 27cm;
+          display: block;
+          margin: 0 auto;
+
+        }
+
+
+    </style>
+</head>
 <body>
 
+    <div class="page"> Pagina 1
+
+    <p> paragraph 1 </p>
+    </div>
+
+    <div class="page"> Pagina 2 </div>
+    <#include "testinclude.ftl">
+    <div class="page"> Pagina 3 </div>
+
+
+    <!-- commento -->
     <h6>Dashboard page</h6>
 
     <div>${title}</div>
@@ -41,6 +78,32 @@
             </tbody>
         </table>
     </div>
+<div id="add_to_me">
+        <h1>GeeksforGeeks</h1>
+        <p>
+            This is the text which has
+            already been typed into
+            the div
+        </p>
+    </div>
+
+
+
+    <script>
+    const collection = document.getElementsByClassName("page");
+        for (let i = 0; i < collection.length; i++) {
+          collection[i].innerHTML +=
+           "<h3> This is the text which has been inserted by JS </h3>";
+        }
+
+            document.getElementById("add_to_me")
+                .innerHTML +=
+                `<h3>
+                    This is the text which has
+                    been inserted by JS
+                </h3>`;
+
+    </script>
 
     <div>${html}</div>
 
