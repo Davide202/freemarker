@@ -1,19 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <style>
-        .page
-        {
-          background: white;
-          width: 21cm;
-          height: 27cm;
-          display: block;
-          /* margin: 0 auto; */
-        }
-    </style>
+<style>
+.page
+{
+    position: relative;
+    border: solid red 1px;
+    background: white;
+    width: 21cm;
+    height: 27cm;
+    display: block;
+  /* margin: 0 auto; */
+}
+.header
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 100px;
+}
+.footer
+{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 100px;
+}
+</style>
 </head>
 <body>
+    <p>
     
+
 <!-- COVER -->
 <div class="page">
     <p style="padding-left: 5pt;text-indent: 0pt;text-align: left;">
@@ -27,9 +45,9 @@
             </table>
         </span>
     </p>
-    <p style="text-indent: 0pt;text-align: left;">
-        <br/>
-    </p>
+
+    <br/>
+
     <table>
         <tr>
             <td>Titolo: Formazione sicurezza 2019 - Rosenheimer Fenstertage - Rubner Tueren Srl</td>
@@ -41,15 +59,20 @@
             <td>Data di presentazione del piano: 25/03/2024</td>
         </tr>
     </table>
+
 </div>
 
+
 <!-- PAGE 1 -->
-<div class="page" style="position: relative;  width: 21cm; height: 27cm; border: solid red 2px;">
+<div id="page1" class="page" >
+
+    <div class="header" style=" border: solid green 2px;">
 
 
-<!-- HEADER -->
-<div style=" margin-right: 100px; position: absolute; top: 0; left: 0;">
-    <table style=" text-align:center; font-size: 9pt; font-family: 'Verdana'; font-weight: bold;">
+<!-- HEADER     <div style=" margin-right: 100px;" ></div>     -->
+
+
+    <table style="table-layout: fixed; width: 100%; text-align:center; font-size: 9pt; font-family: 'Verdana'; font-weight: bold;">
         <tr>
             <td>Titolo: Formazione sicurezza 2019 - Rosenheimer Fenstertage - Rubner Tueren Srl</td>
         </tr>
@@ -61,37 +84,48 @@
         </tr>
     </table>
     <hr>
-</div>    <div style="position: absolute; top: 70px;">
-        Contenuto Pagina 1
+
     </div>
 
-<!-- FOOTER -->
-<div  style="position: absolute; bottom: 0; left: 0; margin-right: 100px; margin-bottom: 0; padding-before: 2mm; font-size: 9pt; font-family: 'Verdana'; font-style: 'italic'; border-before-width: 0.1mm; border-before-style: 'solid';">
-    <hr>
-    <table style="table-layout: fixed; width: 100%; border-collapse: 'separate'; vertical-align: 'middle';">
-        <tr>
-            <td>Pag. 1</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>Data Estrazione:</td>
-            <td style="text-align: right; space-before: 3mm;">
-                (Firma per esteso del dichiarante) ______________________________</td>
-        </tr>
-        <tr>
-            <td><div style="font-weight: 'normal'; font-style: 'italic';">Mon Mar 25 12:34:19 CET 2024</div></td>
-            <td></td>
-        </tr>
-    </table>
-</div></div>
+    <div style="position: absolute; top: 80px; left: 0px;  right: 100; border: solid blue 2px;"> Contenuto Pagina 1 </div>
+
+    <div class="footer" style=" border: solid yellow 2px;">
+
+<!-- FOOTER      <div  style=" margin-right: 100px;   "></div>    -->
+
+
+<hr>
+<table style="table-layout: fixed; width: 100%; border-collapse: 'separate'; vertical-align: 'middle'; font-size: 9pt; font-family: 'Verdana'; font-style: 'italic';">
+    <tr>
+        <td>Pag. 1</td>
+        <td/><td/>
+    </tr>
+    <tr>
+        <td>Data Estrazione:</td>
+        <td style="text-align: right; ">
+            (Firma per esteso del dichiarante)</td>
+            <td style="text-align: left; "> ______________________________________</td>
+    </tr>
+    <tr>
+        <td><div style="font-weight: 'normal'; font-style: 'italic';">Mon Mar 25 16:29:30 CET 2024</div></td>
+        <td/><td/>
+    </tr>
+</table>
+
+    </div>
+
+</div>
 
 <!-- PAGE 2 -->
-<div class="page" style="position: relative;  width: 21cm; height: 27cm; border: solid red 2px;">
+<div id="page2" class="page" >
+
+    <div class="header" style=" border: solid green 2px;">
 
 
-<!-- HEADER -->
-<div style=" margin-right: 100px; position: absolute; top: 0; left: 0;">
-    <table style=" text-align:center; font-size: 9pt; font-family: 'Verdana'; font-weight: bold;">
+<!-- HEADER     <div style=" margin-right: 100px;" ></div>     -->
+
+
+    <table style="table-layout: fixed; width: 100%; text-align:center; font-size: 9pt; font-family: 'Verdana'; font-weight: bold;">
         <tr>
             <td>Titolo: Formazione sicurezza 2019 - Rosenheimer Fenstertage - Rubner Tueren Srl</td>
         </tr>
@@ -103,28 +137,38 @@
         </tr>
     </table>
     <hr>
-</div>    <div style="position: absolute; top: 70px;">
-        Contenuto Pagina 2
+
     </div>
 
-<!-- FOOTER -->
-<div  style="position: absolute; bottom: 0; left: 0; margin-right: 100px; margin-bottom: 0; padding-before: 2mm; font-size: 9pt; font-family: 'Verdana'; font-style: 'italic'; border-before-width: 0.1mm; border-before-style: 'solid';">
-    <hr>
-    <table style="table-layout: fixed; width: 100%; border-collapse: 'separate'; vertical-align: 'middle';">
-        <tr>
-            <td>Pag. 2</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>Data Estrazione:</td>
-            <td style="text-align: right; space-before: 3mm;">
-                (Firma per esteso del dichiarante) ______________________________</td>
-        </tr>
-        <tr>
-            <td><div style="font-weight: 'normal'; font-style: 'italic';">Mon Mar 25 12:34:19 CET 2024</div></td>
-            <td></td>
-        </tr>
-    </table>
-</div></div>
+    <div style="position: absolute; top: 80px; left: 0px;   right: 100px; border: solid blue 2px;"> Contenuto Pagina 2 </div>
+
+    <div class="footer" style=" border: solid yellow 2px;">
+
+<!-- FOOTER      <div  style=" margin-right: 100px;   "></div>    -->
+
+
+<hr>
+<table style="table-layout: fixed; width: 100%; border-collapse: 'separate'; vertical-align: 'middle'; font-size: 9pt; font-family: 'Verdana'; font-style: 'italic';">
+    <tr>
+        <td>Pag. 2</td>
+        <td/><td/>
+    </tr>
+    <tr>
+        <td>Data Estrazione:</td>
+        <td style="text-align: right; ">
+            (Firma per esteso del dichiarante)</td>
+            <td style="text-align: left; "> ______________________________________</td>
+    </tr>
+    <tr>
+        <td><div style="font-weight: 'normal'; font-style: 'italic';">Mon Mar 25 16:29:30 CET 2024</div></td>
+        <td/><td/>
+    </tr>
+</table>
+
+    </div>
+
+</div>
+
+    </p>
 </body>
 </html>

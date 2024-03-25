@@ -1,8 +1,9 @@
 
 
-<!-- HEADER -->
-<div style=" margin-right: 100px; position: absolute; top: 0; left: 0;">
-    <table style=" text-align:center; font-size: 9pt; font-family: 'Verdana'; font-weight: bold;">
+<!-- HEADER     <div style=" margin-right: 100px;" ></div>     -->
+
+
+    <table style="table-layout: fixed; width: 100%; text-align:center; font-size: 9pt; font-family: 'Verdana'; font-weight: bold;">
         <tr>
             <td>Titolo: ${descrizione!'TITOLO'}</td>
         </tr>
@@ -14,4 +15,4 @@
         </tr>
     </table>
     <hr>
-</div>
+

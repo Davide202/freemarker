@@ -1,3 +1,5 @@
+<#assign pageNumber=0>
+
 
 <!-- COVER -->
 <div class="page">
@@ -12,9 +14,9 @@
             </table>
         </span>
     </p>
-    <p style="text-indent: 0pt;text-align: left;">
-        <br/>
-    </p>
+
+    <br/>
+
     <table>
         <tr>
             <td>Titolo: ${descrizione!'TITOLO'}</td>
@@ -26,24 +28,39 @@
             <td>Data di presentazione del piano: ${datePiano.dataPresentazione?string["dd/MM/yyyy"]}</td>
         </tr>
     </table>
+
 </div>
 
+
 <!-- PAGE 1 -->
-<div class="page" style="position: relative;  width: 21cm; height: 27cm; border: solid red 2px;">
-    <#include "exp-piano-header.ftl">
-    <div style="position: absolute; top: 70px;">
-        Contenuto Pagina 1
+<div id="page1" class="page" >
+    <#assign pageNumber=pageNumber+1>
+
+    <div class="header" style=" border: solid green 2px;">
+        <#include "exp-piano-header.ftl">
     </div>
-    <#assign pageNumber=1>
-    <#include "exp-piano-footer.ftl">
+
+    <div style="position: absolute; top: 80px; left: 0px;  right: 100; border: solid blue 2px;"> Contenuto Pagina ${pageNumber} </div>
+
+    <div class="footer" style=" border: solid yellow 2px;">
+        <#include "exp-piano-footer.ftl">
+    </div>
+
 </div>
 
 <!-- PAGE 2 -->
-<div class="page" style="position: relative;  width: 21cm; height: 27cm; border: solid red 2px;">
-    <#include "exp-piano-header.ftl">
-    <div style="position: absolute; top: 70px;">
-        Contenuto Pagina 2
+<div id="page2" class="page" >
+    <#assign pageNumber=pageNumber+1>
+
+    <div class="header" style=" border: solid green 2px;">
+        <#include "exp-piano-header.ftl">
     </div>
-    <#assign pageNumber=2>
-    <#include "exp-piano-footer.ftl">
+
+    <div style="position: absolute; top: 80px; left: 0px;   right: 100px; border: solid blue 2px;"> Contenuto Pagina ${pageNumber} </div>
+
+    <div class="footer" style=" border: solid yellow 2px;">
+        <#include "exp-piano-footer.ftl">
+    </div>
+
 </div>
+
