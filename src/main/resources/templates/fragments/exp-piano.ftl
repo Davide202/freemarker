@@ -2,7 +2,7 @@
 
 
 <!-- COVER -->
-<div class="page">
+<div class="cover">
     <p style="padding-left: 5pt;text-indent: 0pt;text-align: left;">
         <span>
             <table border="0" cellspacing="0" cellpadding="0">
@@ -17,30 +17,51 @@
 
     <br/>
 
-    <table>
-        <tr>
-            <td>Titolo: ${descrizione!'TITOLO'}</td>
-        </tr>
-        <tr>
-            <td>Codice identificativo del piano: ${id!'ID'}</td>
-        </tr>
-        <tr>
-            <td>Data di presentazione del piano: ${datePiano.dataPresentazione?string["dd/MM/yyyy"]}</td>
-        </tr>
-    </table>
+
+    <p style="text-indent: 0pt;text-align: left;">
+        <br/>
+    </p>
+    <h1 class="s1" style="padding-left: 2pt;text-indent: 0pt;text-align: center;">Formulario del Piano Formativo</h1>
+    <p style="text-indent: 0pt;text-align: left;">
+        <br/>
+    </p>
+    <h1 style="padding-bottom: 2pt;padding-left: 93pt;text-indent: 0pt;text-align: center;">Titolo: ${descrizione!'TITOLO'}</h1>
+    <p style="padding-left: 5pt;text-indent: 0pt;line-height: 1pt;text-align: left;"/>
+    <p style="text-indent: 0pt;text-align: center;">
+        <hr/>
+    </p>
+    <h3 style="padding-left: 2pt;text-indent: 0pt;text-align: center;">Codice identificativo del piano: ${id!'ID'}</h3>
+    <p style="text-indent: 0pt;text-align: left;">
+        <br/>
+    </p>
+    <h1 style="text-indent: 0pt;text-align: center;">
+    Tipologia del piano: <#if tipologiaPianiAvviso?? && tipologiaPianiAvviso?trim?has_content>${tipologiaPianiAvviso}<#else>Piano</#if>
+    <#if tipoPiano?? && tipoPiano?trim?has_content>${tipoPiano}</#if>
+    <#if contributoConcesso?? && contributoConcesso>con Contributo Aggiuntivo</#if>
+    </h1>
+
+    <p style="padding-top: 6pt;text-indent: 0pt;text-align: left;">
+        <br/>
+    </p>
+    <#if pianoAttivatoDaEnteFormativo?? && pianoAttivatoDaEnteFormativo>
+        <h1 style="text-indent: 0pt;text-align: center;">Piano presentato da Ente Formativo non partecipante</h1>
+    </#if>
 
 </div>
 
 
 <!-- PAGE 1 -->
-<div id="page1" class="page" >
+<div class="page" >
     <#assign pageNumber=pageNumber+1>
 
     <div class="header" style=" border: solid green 2px;">
         <#include "exp-piano-header.ftl">
     </div>
 
-    <div style="position: absolute; top: 80px; left: 0px;  right: 100; border: solid blue 2px;"> Contenuto Pagina ${pageNumber} </div>
+    <div style="position: absolute; top: 80px; left: 0px;  right: 100; border: solid blue 2px;">
+        Contenuto Pagina ${pageNumber} <br>
+        <#include "autocertificazione-loop.ftl">
+    </div>
 
     <div class="footer" style=" border: solid yellow 2px;">
         <#include "exp-piano-footer.ftl">
@@ -49,7 +70,7 @@
 </div>
 
 <!-- PAGE 2 -->
-<div id="page2" class="page" >
+<div class="page" >
     <#assign pageNumber=pageNumber+1>
 
     <div class="header" style=" border: solid green 2px;">

@@ -1,6 +1,7 @@
 package com.test.freemarker.application;
 
 
+import com.itextpdf.html2pdf.ConverterProperties;
 import com.itextpdf.html2pdf.HtmlConverter;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.renderer.AbstractRenderer;
@@ -17,6 +18,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.io.*;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.HashMap;
@@ -54,12 +56,15 @@ public class FreeMarkerCommandLineRunner implements CommandLineRunner {
 
         String html = Files.readString(Path.of(list_persona_html));
 
+        ConverterProperties properties = new ConverterProperties();
+        properties.setCharset("UTF-8");
+
         HtmlConverter.convertToPdf(
 //                "<html><body><div>TEST TEST <br> <b>This text should be written in bold.</b></div></boby></html>",       // html to be converted
                 html,
                 new PdfWriter(
                         new File(output_pdf)  // destination file
-                )
+                ),properties
         );
     }
 

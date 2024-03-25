@@ -2,6 +2,13 @@
 <html>
 <head>
 <style>
+.cover
+{
+    width: 21cm;
+    height: 27cm;
+    display: block;
+    border: solid white 1px;
+}
 .page
 {
     position: relative;
@@ -26,6 +33,7 @@
     left: 0;
     right: 100px;
 }
+h1 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 14pt; }
 </style>
 </head>
 <body>
