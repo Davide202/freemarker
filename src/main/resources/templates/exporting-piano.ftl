@@ -7,7 +7,7 @@
     width: 21cm;
     height: 27cm;
     display: block;
-    border: solid white 1px;
+    border: solid red 1px;
 }
 .page
 {
@@ -34,6 +34,7 @@
     right: 100px;
 }
 h1 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 14pt; }
+.s1 { color: black; font-family:Arial, sans-serif; font-style: italic; font-weight: bold; text-decoration: none; font-size: 16pt; }
 </style>
 </head>
 <body>
