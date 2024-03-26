@@ -33,8 +33,17 @@
     left: 0;
     right: 100px;
 }
-h1 { color: black; font-family:Arial, sans-serif; font-style: normal; font-weight: bold; text-decoration: none; font-size: 14pt; }
-.s1 { color: black; font-family:Arial, sans-serif; font-style: italic; font-weight: bold; text-decoration: none; font-size: 16pt; }
+
+.s1
+{
+    color: black;
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 16pt;
+}
+
 </style>
 </head>
 <body>
