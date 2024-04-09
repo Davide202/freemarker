@@ -37,7 +37,7 @@
 .s1
 {
     color: black;
-    font-family: sans-serif;
+    font-family: "Verdana";
     font-style: normal;
     font-weight: bold;
     text-decoration: none;
